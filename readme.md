@@ -11,5 +11,5 @@ itang's golang library
 
 see tests
 
-   [io](https://github.com/itang/cljtang/tree/master/io/file_test.go)
+   [io](https://github.com/itang/gotang/blob/master/io/file_test.go)
 
