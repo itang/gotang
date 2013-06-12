@@ -1,17 +1,9 @@
 package io
 
 import (
-	"github.com/bmizerany/assert"
+	. "github.com/itang/gotang/test"
 	"testing"
 )
-
-func AssertTrue(t *testing.T, got interface{}, args ...interface{}) {
-	assert.Equal(t, true, got, args...)
-}
-
-func AssertFalse(t *testing.T, got interface{}, args ...interface{}) {
-	assert.Equal(t, false, got, args...)
-}
 
 func TestExists(t *testing.T) {
 	AssertTrue(t, Exists("file.go"))
