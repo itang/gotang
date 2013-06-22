@@ -14,9 +14,9 @@ func AssertFalse(t *testing.T, got interface{}, args ...interface{}) {
 }
 
 func AssertNull(t *testing.T, got interface{}, args ...interface{}) {
-  assert.Equal(t, nil, got, args...)
+	assert.Equal(t, nil, got, args...)
 }
 
 func AssertNotNull(t *testing.T, got interface{}, args ...interface{}) {
-  assert.NotEqual(t, nil, got, args...)
+	assert.NotEqual(t, nil, got, args...)
 }
