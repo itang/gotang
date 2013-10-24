@@ -13,7 +13,7 @@ func TestChinaDateLayout(t *testing.T) {
 	var tests = []struct {
 		time     time.Time
 		layout   string
-		formated string
+		expected string
 	}{
 		{testTime, ChinaDefaultDateTimeFull, "2009-11-10 15:12:10.3"},
 		{testTime, ChinaDefaultDateTime, "2009-11-10 15:12:10"},
@@ -22,6 +22,6 @@ func TestChinaDateLayout(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		assert.Equal(t, test.formated, test.time.Format(test.layout))
+		assert.Equal(t, test.expected, test.time.Format(test.layout))
 	}
 }
