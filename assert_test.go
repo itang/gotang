@@ -15,11 +15,20 @@ func TestCheckError(t *testing.T) {
 	})
 }
 
-func TestMustNoError(t *testing.T) {
-	MustNoError(nil)
+func TestAssertNoError(t *testing.T) {
+	AssertNoError(nil)
 
 	e := errors.New("err")
 	assert.Panic(t, e, func() {
-		MustNoError(e)
+		AssertNoError(e)
+	})
+}
+
+func TestAssert(t *testing.T) {
+	Assert(true, "")
+
+	e := "assertion failed: 1 + 1 should equals 2"
+	assert.Panic(t, e, func() {
+		Assert(1+1 != 2, "1 + 1 should equals 2")
 	})
 }
