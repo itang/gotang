@@ -17,10 +17,10 @@ func AssertNoError(err error) {
 
 func Assert(assertion bool, message string) {
 	if !assertion {
-		detail := message
-		if detail != "" {
-			detail = ": " + detail
+		err := "assertion failed"
+		if message != "" {
+			err += ": " + message
 		}
-		panic("assertion failed" + detail)
+		panic(err)
 	}
 }
