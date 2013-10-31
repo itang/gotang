@@ -14,3 +14,12 @@ func TestCheckError(t *testing.T) {
 		CheckError(e)
 	})
 }
+
+func TestMustNoError(t *testing.T) {
+	MustNoError(nil)
+
+	e := errors.New("err")
+	assert.Panic(t, e, func() {
+		MustNoError(e)
+	})
+}
