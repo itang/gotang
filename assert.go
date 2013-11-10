@@ -1,7 +1,7 @@
 package gotang
 
 // Deprecated.
-// use `MustNoError` instead.
+// use `AssertNoError` instead.
 func CheckError(err error) error {
 	if err != nil {
 		panic(err)
