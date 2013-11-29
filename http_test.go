@@ -18,10 +18,10 @@ func TestGetJSON(t *testing.T) {
 	}
 
 	code, _ := obj["code"]
-  log.Println("code", code)
+	log.Println("code", code)
 	assert.Equal(t, "0", fmt.Sprintf("%v", code), "code should be 0")
 
-  err1 := GetJSON("http://somebadhost", &obj)
-  log.Println(err1)
-  assert.NotEqual(t, nil, err1,  "bad host raise error")
+	err1 := GetJSON("http://somebadhost", &obj)
+	log.Println(err1)
+	assert.NotEqual(t, nil, err1, "bad host raise error")
 }
