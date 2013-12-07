@@ -3,8 +3,8 @@ package gotang
 import (
 	"fmt"
 	"log"
+	"strings"
 	"testing"
-"strings"
 
 	"github.com/bmizerany/assert"
 )

@@ -21,9 +21,9 @@ func GetString(url string) (content string, err error) {
 		return content, err
 	}
 	defer resp.Body.Close()
-  bytes, err := ioutil.ReadAll(resp.Body)
-  if err != nil {
-    return content, err
-  }
-  return string(bytes), nil
+	bytes, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return content, err
+	}
+	return string(bytes), nil
 }
