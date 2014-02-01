@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func GetJSON(url string, obj interface{}) error {
+func HttpGetAsJSON(url string, obj interface{}) error {
 	resp, err := http.Get(url)
 	if err != nil {
 		return err
@@ -15,7 +15,7 @@ func GetJSON(url string, obj interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(obj)
 }
 
-func GetString(url string) (content string, err error) {
+func HttpGetAsString(url string) (content string, err error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		return content, err
