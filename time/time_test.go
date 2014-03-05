@@ -12,3 +12,11 @@ func TestFormat(t *testing.T) {
 
 	assert.Equal(t, "2009-11-10 15:12:10", FormatDefault(testTime))
 }
+
+func TestRichTime(t *testing.T) {
+	testTime := time.Date(2009, time.November, 10, 15, 12, 10, int(time.Millisecond*time.Duration(300)), time.Local)
+	rt := RichTime(testTime)
+	yt := rt.Yesterday()
+
+	assert.Equal(t, 9, yt.Day())
+}

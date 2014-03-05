@@ -21,7 +21,7 @@ func Assert(assertion bool, message string) {
 	if !assertion {
 		err := "assertion failed"
 		if message != "" {
-			err += ": "+message
+			err += ": " + message
 		}
 		panic(err)
 	}
