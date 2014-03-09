@@ -3,24 +3,15 @@ package gotang
 import (
 	"errors"
 	"github.com/bmizerany/assert"
-	. "github.com/itang/gotang/test"
 	"testing"
 )
 
-func TestCheckError(t *testing.T) {
-	AssertNull(t, CheckError(nil))
-	e := errors.New("err")
-	assert.Panic(t, e, func() {
-		CheckError(e)
-	})
-}
-
 func TestAssertNoError(t *testing.T) {
-	AssertNoError(nil)
+	AssertNoError(nil, "")
 
-	e := errors.New("err")
-	assert.Panic(t, e, func() {
-		AssertNoError(e)
+	assert.Panic(t, "assertion failed: should no error (err)", func() {
+		e := errors.New("err")
+		AssertNoError(e, "should no error")
 	})
 }
 

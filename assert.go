@@ -1,19 +1,8 @@
 package gotang
 
-// Deprecated.
-// use `AssertNoError` instead.
-func CheckError(err error) error {
+func AssertNoError(err error, message string) {
 	if err != nil {
-		panic(err)
-	}
-	return nil
-}
-
-func AssertNoError(errs ...error) {
-	for _, err := range errs {
-		if err != nil {
-			panic(err)
-		}
+		Assert(false, message+" ("+err.Error()+")")
 	}
 }
 
