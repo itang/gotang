@@ -22,3 +22,24 @@ func DoIOWithTimeout(iof func() error, t time.Duration) error {
 		return err
 	}
 }
+
+func TruncStr(s string, le int, a string) string {
+	if ulen(s) < le {
+		return substr(s, 0, le)
+	}
+	return substr(s, 0, le) + a
+}
+
+func substr(s string, pos, length int) string {
+	runes := []rune(s)
+	l := pos + length
+	if l > len(runes) {
+		l = len(runes)
+	}
+	return string(runes[pos:l])
+}
+
+func ulen(s string) int {
+	runes := []rune(s)
+	return len(runes)
+}
