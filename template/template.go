@@ -10,6 +10,7 @@ import (
 )
 
 var ExtTemplateFuncs = map[string]interface{}{
+	"sprintf": fmt.Sprintf,
 	"str": func(v interface{}) string {
 		return fmt.Sprintf("%v", v)
 	},
