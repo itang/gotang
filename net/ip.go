@@ -12,10 +12,7 @@ import (
 func LookupWlanIP4addr() (ip4 string, err error) {
 	switch runtime.GOOS {
 	case "linux":
-		ifi, err := net.InterfaceByName("wlan0")
-		if err != nil {
-			return "", err
-		}
+		ifi, err := firstIfiNoErr([]string{"wlan0", "eth0"})
 		addrs, err := ifi.Addrs()
 		if err != nil {
 			return "", err
@@ -43,6 +40,17 @@ func LookupWlanIP4addr() (ip4 string, err error) {
 		}
 	}
 	return "", errors.New("NO FOUND")
+}
+
+func firstIfiNoErr(names []string) (*net.Interface, error) {
+  var err error
+  for _, name := range names {
+    ifi, err := net.InterfaceByName(name)
+    if err == nil {
+      return ifi, nil
+    }
+  }
+  return nil, err
 }
 
 func wlanIP4addrLike(ip string) bool {
