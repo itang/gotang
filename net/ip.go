@@ -42,10 +42,9 @@ func LookupWlanIP4addr() (ip4 string, err error) {
 	return "", errors.New("NO FOUND")
 }
 
-func firstIfiNoErr(names []string) (*net.Interface, error) {
-  var err error
+func firstIfiNoErr(names []string) (ifi *net.Interface,err error) {
   for _, name := range names {
-    ifi, err := net.InterfaceByName(name)
+    ifi, err = net.InterfaceByName(name)
     if err == nil {
       return ifi, nil
     }
