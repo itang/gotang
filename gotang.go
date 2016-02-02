@@ -5,6 +5,15 @@ import (
 	"time"
 )
 
+func Time(block func()) {
+	start := time.Now().UnixNano()
+	block()
+	end := time.Now().UnixNano()
+
+	ms := (end - start) / 1000000.0
+	fmt.Printf("Elapsed time: %v msecs", ms)
+}
+
 // 执行IO操作并设定超时时间，超时返回超时错误
 func DoIOWithTimeout(iof func() error, t time.Duration) error {
 	timeout := time.NewTicker(t)
