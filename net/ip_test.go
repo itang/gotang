@@ -7,9 +7,9 @@ import (
 )
 
 func TestLookupWlanIP4addr(t *testing.T) {
-	ip, err := LookupWlanIP4addr()
-	// FIX buggly?
-	if err == nil {
-		AssertTrue(t, strings.HasPrefix(ip, "192"))
+	ip, _ := LookupWlanIP4addr()
+
+	if ip != "" {
+		AssertTrue(t, !strings.HasPrefix(ip, "127"))
 	}
 }
